@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-	//
+	// scope our application
+    MultiTenancyScope::setTenantId(0);
 });
 
 
@@ -35,7 +36,21 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login')->withErrors(Lang::get('general.not_logged_in'));
+	if (Auth::guest())
+    {
+        return Redirect::guest('login')->withErrors(Lang::get('general.not_logged_in'));
+    }
+    else
+    {
+        $currentUser = Sentinel::getUser();
+
+        View::share('currentUser', $currentUser);
+
+        // set our tenant scope id
+        MultiTenancyScope::setTenantId($currentUser->getTenantScope());
+
+        dd(\PjtitleSynergy\Synergy\MultiTenancy\MultiTenancyScope::getTenantId());
+    }
 });
 
 
