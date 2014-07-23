@@ -33,7 +33,11 @@
 		{
 			"type": "composer",
 			"url": "http://packages.cartalyst.com"
-		}
+		},
+        {
+            "type": "composer",
+            "url": "http://satis.kyaris.com"
+        }
 	],
 	"require": {
 		"laravel/framework": "4.2.*",
@@ -51,8 +55,13 @@
 		"platform/operations": "dev-master",
 		"platform/pages": "dev-master",
 		"platform/settings": "dev-master",
-		"platform/users": "dev-master"
+		"platform/users": "dev-master",
+		"laracasts/commander": "1.*",
+		"laracasts/presenter": "dev-master"
 	},
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "1.*"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -72,7 +81,8 @@
 			"php artisan platform:upgrade",
 			"php artisan theme:publish --extensions",
 			"php artisan asset:publish platform/installer",
-			"php artisan theme:compile"
+			"php artisan theme:compile",
+            "php artisan ide-helper:generate"
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
@@ -80,7 +90,8 @@
 			"php artisan platform:upgrade",
 			"php artisan theme:publish --extensions",
 			"php artisan asset:publish platform/installer",
-			"php artisan theme:compile"
+			"php artisan theme:compile",
+            "php artisan ide-helper:generate"
 		]
 	},
 	"config": {
