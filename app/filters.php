@@ -48,8 +48,6 @@ Route::filter('auth', function()
 
         // set our tenant scope id
         MultiTenancyScope::setTenantId($currentUser->getTenantScope());
-
-        dd(\PjtitleSynergy\Synergy\MultiTenancy\MultiTenancyScope::getTenantId());
     }
 });
 
