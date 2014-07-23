@@ -134,7 +134,9 @@ return array(
 		'Platform\Foundation\Laravel\PlatformServiceProvider',
 
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Laracasts\Commander\CommanderServiceProvider'
+        'Laracasts\Commander\CommanderServiceProvider',
+
+        'PjtitleSynergy\Synergy\SynergyServiceProvider'
 	),
 
 	/*
